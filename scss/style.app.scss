@@ -1,0 +1,520 @@
+//$positive: #16A085 !default;
+$calm: #F5F5F5 !default;
+$primary: #16A085 !default;
+$secundary: #F5F5F5 !default;
+$background: #FFFFFF !default;
+$shadow: #BDC3C7 !default;
+$stable: #AAAAAA !default;
+$default-blue: #34495E !default;
+$menu-color-light: #34495E !default;
+$menu-color-dark: #2C3E50 !default;
+/*$secundary:                      #f5f5f5;*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+/* With gutters */
+
+.Grid-header {
+    min-height: 45px;
+}
+
+.Grid-footer {
+    min-height: 45px;
+}
+
+.Grid {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: $background;
+}
+
+.Grid-cell {
+    flex: 1;
+    min-width: 100%;
+}
+
+.Grid--gutters {
+    margin: -1em 0 0 -1em;
+}
+
+.Grid--gutters > .Grid-cell {
+    padding: 1em 0 0 1em;
+}
+
+.Grid-header {
+    min-height: 45px;
+}
+
+.Grid-footer {
+    min-height: 45px;
+}
+/* Alignment per row */
+
+.Grid--top {
+    align-items: flex-start;
+}
+
+.Grid--bottom {
+    align-items: flex-end;
+}
+
+.Grid--center {
+    align-items: center;
+}
+/* Alignment per cell */
+
+.Grid-cell--top {
+    align-self: flex-start;
+}
+
+.Grid-cell--bottom {
+    align-self: flex-end;
+}
+
+.Grid-cell--center {
+    align-self: center;
+}
+/* Base classes for all media */
+
+.Grid--fit > .Grid-cell {
+    flex: 1;
+}
+
+.Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+}
+
+.Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%
+}
+
+.Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%
+}
+
+.Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%
+}
+/* Small to medium screens */
+
+@media (min-width: 24em) {
+    .small-Grid--fit > .Grid-cell {
+        flex: 1;
+    }
+    .small-Grid--full > .Grid-cell {
+        flex: 0 0 100%;
+    }
+    .small-Grid--1of2 > .Grid-cell {
+        flex: 0 0 50%
+    }
+    .small-Grid--1of3 > .Grid-cell {
+        flex: 0 0 33.3333%
+    }
+    .small-Grid--1of4 > .Grid-cell {
+        flex: 0 0 25%
+    }
+}
+/* Large screens */
+
+@media (min-width: 48em) {
+    .large-Grid--fit > .Grid-cell {
+        flex: 1;
+    }
+    .large-Grid--full > .Grid-cell {
+        flex: 0 0 100%;
+    }
+    .large-Grid--1of2 > .Grid-cell {
+        flex: 0 0 50%
+    }
+    .large-Grid--1of3 > .Grid-cell {
+        flex: 0 0 33.3333%
+    }
+    .large-Grid--1of4 > .Grid-cell {
+        flex: 0 0 25%
+    }
+}
+
+.animate-hide {
+    -webkit-transition: all linear 0s;
+    transition: all linear 0;
+    line-height: 20px;
+    opacity: 1;
+    background: white;
+}
+
+.animate-hide.ng-show {
+    line-height: 0;
+    opacity: 0;
+}
+
+#icon_right_menu {
+    color: #ccc;
+    font-size: 18px;
+}
+
+#icon_right_card {
+    color: #3CB371;
+    font-size: 18px;
+}
+
+#inputValor {
+    border-width: 0;
+    padding: 5% 0;
+    width: 99%;
+    outline: none;
+    font-size: 150%;
+    text-align: center;
+    display: block;
+    height: 1em;
+}
+
+.titleHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    margin: 0 10px;
+    min-width: 30px;
+    height: 43px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+}
+
+.inputCenter {
+    padding: 1em 0.5em 0.5em 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.contentView ion-view {
+    background-color: $background;
+}
+
+.navViewDefault ion-header-bar {
+    background-color: $primary;
+    color: #ffffff;
+    text-align: center;
+}
+
+span {
+    text-align: center;
+}
+
+real {
+    color: $primary;
+}
+/**/
+
+hr.ou {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    color: $primary;
+}
+
+hr.ou:after {
+    content: "Ou";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: $background;
+}
+
+hr.line {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+hr.line:after {
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: $background;
+}
+/*@Override from ionic class*/
+
+.list {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.col-40 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 40%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+.card-value {
+    @extend .card;
+    @extend .default-background;
+    height: 80px;
+    font-size: 16px;
+}
+
+.default-background {
+    background: $background;
+}
+
+.bar {
+    border-style: hidden;
+}
+
+.registryForm {
+    .item-input {
+        border-radius: 5px;
+    }
+    input::-webkit-input-placeholder {
+        color: $shadow;
+    }
+}
+
+.label_pattern {
+    border-radius: 3px;
+    border: 1px solid;
+    margin-top: 5%;
+    input::-webkit-input-placeholder {
+        color: $primary;
+    }
+}
+
+.card_history {
+    border-radius: 3px;
+    border: 0px solid;
+}
+/*@Overrride popup ionic*/
+
+.popup {
+    background-color: $background;
+}
+
+.popup-head {
+    padding: 0px;
+    height: 0px;
+    border-bottom: none;
+}
+
+.popup-body {
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 18px;
+    color: #848484;
+}
+
+.popup-body i {
+    color: $primary;
+}
+/*Span de validação do formulário da página de registro*/
+
+label.item.has-error {
+    border-bottom: 2px solid red;
+}
+
+label.item.has-error-last {
+    border-bottom: 1.9px solid red;
+}
+/* Home Screen (Sale) */
+
+.product-description {
+    text-align: center;
+    width: 50%;
+    background: $background;
+}
+
+.product-description-underline {
+    height: 0;
+    width: 50%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.product-price {
+    font-size: 0.6em;
+    padding-bottom: 30px;
+}
+
+.home-container {
+    padding-top: 70px;
+    height: 100%;
+}
+
+.home-header-container {
+    height: 35%;
+    width: 100%;
+    font-size: 100px;
+}
+
+.home-bottom-container {
+    height: 65%;
+    width: 100%;
+}
+
+.digit-button {
+    font-size: 22px;
+    height: 100%;
+    margin-top: 0px;
+}
+
+.digit-line {
+    height: 20%;
+    padding: 0px;
+}
+
+.digit-column {
+    height: 100%;
+}
+
+@import "www/lib/ionic/scss/ionic";
+.default_color {
+    color: $primary;
+}
+
+#default_color {
+    color: $primary;
+}
+
+.shadow_color {
+    color: $shadow;
+}
+
+.button-shadow {
+    color: $shadow;
+    box-shadow: 0px 3px 5px;
+}
+
+.button.button-calm {
+    color: $primary;
+    border-color: $shadow;
+}
+
+.box_shadow {
+    box-shadow: 0px 1px 0px;
+}
+
+.center_text {
+    text-align: center;
+}
+
+#icon_right_card_cancel {
+    color: #F85316;
+    font-size: 18px;
+}
+
+#default_red_color {
+    color: #F85316;
+}
+
+.default_blue_color {
+    color: $default-blue;
+}
+
+.text_report_small {
+    font-family: Roboto-Regular;
+    font-size: 10px;
+}
+
+.text_report_larger {
+    font-family: Roboto-Medium;
+    font-size: 18px;
+}
+
+.menu-color-light {
+    background-color: $menu-color-light;
+}
+
+.menu-color-dark {
+    background-color: $menu-color-dark;
+}
+
+#menu-color-dark {
+    background-color: $menu-color-dark;
+}
+
+.fixed-outside {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.payment-approved-underline {
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.payment-approved-property-label {
+    font-family: Roboto-Medium;
+    font-size: 150%;
+    color: #7f8c8d;
+}
+
+.payment-approved-property-content {
+    font-size: 120%;
+    color: #353535;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.payment-approved-title {
+    font-size: 200%;
+}
+
+#menu-color-light {
+    background-color: $menu-color-light;
+}
+
+.border_menu {
+    border: 0px solid $menu-color-light;
+}
+
+#menu_client_name {
+    color: #f1c40f;
+    margin-top: 15%;
+    font-size: 14px;
+    font-family: Roboto-Medium;
+}
+
+#menu_client_email {
+    color: #BDC3C7;
+    font-size: 12px;
+    font-family: Roboto-Regular;
+}
+
+.menu_item {
+    color: #ffffff;
+    height: 48px;
+    font-size: 14px;
+    font-family: Roboto-Medium;
+}
+
+.popup-body {
+    overflow: auto;
+}
