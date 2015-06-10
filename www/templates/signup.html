@@ -1,0 +1,43 @@
+<ion-view>
+    <div class="Grid ">
+        <div class="Grid-header">
+            <ion-header-bar class="bar bar-header bar-positive">
+                <h1 class="title">Create New Account</h1>
+                <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+            </ion-header-bar>
+        </div>
+        <div class="row Grid-cell Grid-cell--center ">
+            <div class="row row-center">
+                <div class="col col-top">
+                    <div class="col-100">
+                        <label class="item item-input">
+                            <span class="input-label">Email</span>
+                            <input ng-model="user.email" type="text">
+                        </label>
+                    </div>
+                    <div class="col-100">
+                        <label class="item item-input">
+                            <span class="input-label">Password</span>
+                            <input ng-model="user.password" type="password">
+                        </label>
+                    </div>
+                    <div class="col-100">
+                        <label class="item item-input">
+                            <span class="input-label">Name</span>
+                            <input ng-model="user.name" type="text">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row Grid-cell Grid-cell--bottom">
+            <div class="row row-center">
+                <div class="col col-top">
+                    <div class="col-100">
+                        <button class="button button-full button-positive" ng-click="createUser()">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-view>
