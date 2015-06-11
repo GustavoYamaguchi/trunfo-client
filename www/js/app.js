@@ -22,6 +22,12 @@ angular.module('starter', ['ionic','firebase'])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
+    .state('menu', {
+        url: "/menu",
+        templateUrl: "templates/menu.html",
+        controller: 'MenuController'
+    })
+
     .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
