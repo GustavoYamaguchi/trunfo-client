@@ -1,0 +1,14 @@
+# ignorando arquivos para o codeclimate
+exclude_paths:
+- "node_modules/*"
+- "hooks/*"
+- "bower.json"
+- "config.xml"
+- "LICENSE"
+- "platforms/*"
+- "resources/*"
+- "plugins/*"
+- "scss/*"
+- "ionic.project"
+- "README.md"
+- "setup.sh"
