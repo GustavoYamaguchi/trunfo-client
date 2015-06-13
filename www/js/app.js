@@ -1,4 +1,4 @@
-var firebaseUrl = "https://trunfogot.firebaseio.com/";
+var firebaseUrl = "https://trunfo-les.firebaseio.com/";
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -33,5 +33,5 @@ angular.module('starter', ['ionic','firebase'])
         templateUrl: "templates/login.html",
         controller: "LoginController"
     })
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/menu');
 });

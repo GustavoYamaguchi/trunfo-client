@@ -1,5 +1,6 @@
 #menu-background{
-    background: url('../img/menu/menuCompleto.jpg') no-repeat center center fixed;
+    background: url('../img/menu/menu.jpg');
+    background-position: inherit;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

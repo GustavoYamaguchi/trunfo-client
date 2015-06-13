@@ -40,8 +40,7 @@ app.controller('LoginController', function ($scope, $state, $ionicModal, $ionicP
 						$rootScope.user = val;
 					});
 				});
-				//$state.go("tab.rooms");
-				$scope.user = {};
+				$state.go("menu");
 			}).catch(function(error) {
 				showPopup("Authentication failed: " + error.message);
 				$ionicLoading.hide();

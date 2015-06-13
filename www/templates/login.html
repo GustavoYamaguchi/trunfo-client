@@ -1,33 +1,26 @@
 <ion-view>
-    <div class="Grid ">
-        <div class="row Grid-cell Grid-cell--center ">
-            <div class="row row-center">
-                <!--  <div class="col-offset-50"> -->
-                <img src="img/ionic.png" style="margin-left: auto; margin-right: auto; ">
-                <!-- </div> -->
-            </div>
+    <ion-content class="padding">
+        <div class="list">
+            <img id="spinner" src="img/logo.png" class="logo">
+            <div class="logo-name">Chat Run</div>
         </div>
-        <div class="row Grid-cell Grid-cell--bottom">
-            <div class="row row-center">
-                <div class="col col-top">
-                    <div class="col-100">
-                        <label class="item item-input">
-                            <span class="input-label">Email</span>
-                            <input ng-model="user.email" type="text">
-                        </label>
-                    </div>
-                    <div class="col-100 text-center">
-                        <label class="item item-input">
-                            <span class="input-label">Password</span>
-                            <input ng-model="user.password" type="password">
-                        </label>
-                        <br>
-                        <button ng-click="modal.show()" class="button button-small button-outline icon-left ion-person-add button-positive">
-                            Create Account
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="list card padding">
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input ng-model="user.email" type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input ng-model="user.password" type="password">
+            </label>
+            <button ng-click="login()" class="button button-block button-positive activated">
+                Login
+            </button>
         </div>
-    </div>
+        <div class="list" style="text-align: center">
+            <button ng-click="modal.show()" class="button button-small button-outline icon-left ion-person-add button-positive">
+                Create Account
+            </button>
+        </div>
+    </ion-content>
 </ion-view>
