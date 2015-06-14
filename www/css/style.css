@@ -1,8 +1,88 @@
-#menu-background{
+.menu-fundo {
     background: url('../img/menu/menu.jpg');
-    background-position: inherit;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+}
+
+.botton-battle {
+    background: url('../img/menu/battle.png') no-repeat;
+    background-size: 55%;
+    position: fixed;
+    width:98px;
+    height: 231px;
+    margin-top: 34.5em;
+    margin-left: 19em;
+}
+
+.botton-battle:active {
+    background-size: 53%;
+}
+
+.botton-army {
+    background: url('../img/menu/army.png') no-repeat;
+    background-size: 55%;
+    position: fixed;
+    width:75px;
+    height: 190px;
+    margin-top: 36.2em;
+    margin-left: 12em;
+}
+
+.botton-army:active {
+    background-size: 53%;
+}
+
+.botton-shop {
+    background: url('../img/menu/shop.png') no-repeat;
+    background-size: 60%;
+    position: fixed;
+    width:83px;
+    height: 169px;
+    margin-top: 36.2em;
+    margin-left:4em;
+}
+
+.botton-shop:active {
+    background-size: 58%;
+}
+
+.botton-credits {
+    background: url('../img/menu/credits.png') no-repeat;
+    background-size: 55%;
+    position: fixed;
+    width:82px;
+    height: 267px;
+    margin-top: 4em;
+    margin-left:19em;
+}
+
+.botton-credits:active {
+    background-size: 53%;
+}
+
+.botton-config {
+    background: url('../img/menu/config.png') no-repeat;
+    background-size: 55%;
+    position: fixed;
+    width:102px;
+    height: 130px;
+    margin-top: 6em;
+    margin-left: 12em;
+}
+
+.botton-config:active {
+    background-size: 53%;
+}
+
+.botton-exit {
+    background: url('../img/menu/exit.png') no-repeat;
+    background-size: 55%;
+    position: fixed;
+    width:81px;
+    height: 138px;
+    margin-top: 6em;
+    margin-left: 4em;
+}
+
+.botton-exit:active {
+    background-size: 53%;
 }
