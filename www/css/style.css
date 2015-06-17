@@ -1,16 +1,18 @@
 .menu-fundo {
-    background: url('../img/menu/menu.jpg');
-    background-size: cover;
+    background: url('../img/menu/menu.jpg') no-repeat center;
+    position: absolute;
+    background-size: 100%;
 }
 
 .botton-battle {
     background: url('../img/menu/battle.png') no-repeat;
+    position: absolute;
     background-size: 55%;
-    position: fixed;
-    width:98px;
+    width: 98px;
     height: 231px;
-    margin-top: 34.5em;
-    margin-left: 19em;
+    left: 270px;
+    top: 480px;
+    border: none;
 }
 
 .botton-battle:active {
@@ -19,12 +21,13 @@
 
 .botton-army {
     background: url('../img/menu/army.png') no-repeat;
+    position: absolute;
     background-size: 55%;
-    position: fixed;
-    width:75px;
+    width: 75px;
     height: 190px;
-    margin-top: 36.2em;
-    margin-left: 12em;
+    left:171px;
+    top: 507px;
+    border: none;
 }
 
 .botton-army:active {
@@ -33,12 +36,13 @@
 
 .botton-shop {
     background: url('../img/menu/shop.png') no-repeat;
+    position: absolute;
     background-size: 60%;
-    position: fixed;
-    width:83px;
+    width: 83px;
     height: 169px;
-    margin-top: 36.2em;
-    margin-left:4em;
+    left: 50px;
+    top: 500px;
+    border: none;
 }
 
 .botton-shop:active {
@@ -47,12 +51,13 @@
 
 .botton-credits {
     background: url('../img/menu/credits.png') no-repeat;
+    position: absolute;
     background-size: 55%;
-    position: fixed;
-    width:82px;
+    width: 82px;
     height: 267px;
-    margin-top: 4em;
-    margin-left:19em;
+    left: 270px;
+    top: 55px;
+    border: none;
 }
 
 .botton-credits:active {
@@ -61,12 +66,13 @@
 
 .botton-config {
     background: url('../img/menu/config.png') no-repeat;
+    position: absolute;
     background-size: 55%;
-    position: fixed;
-    width:102px;
+    width: 102px;
     height: 130px;
-    margin-top: 6em;
-    margin-left: 12em;
+    left: 170px;
+    top: 80px;
+    border: none;
 }
 
 .botton-config:active {
@@ -75,12 +81,13 @@
 
 .botton-exit {
     background: url('../img/menu/exit.png') no-repeat;
+    position: absolute;
     background-size: 55%;
-    position: fixed;
-    width:81px;
+    width: 81px;
     height: 138px;
-    margin-top: 6em;
-    margin-left: 4em;
+    left: 55px;
+    top: 80px;
+    border: none;
 }
 
 .botton-exit:active {

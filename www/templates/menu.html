@@ -1,10 +1,16 @@
 <ion-view>
     <ion-content class="menu-fundo">
-        <a class="botton-credits" ng-click="credits()"></a>
-        <a class="botton-config" ng-click="config()"></a>
-        <a class="botton-exit" ng-click="exit()"></a>
-        <a class="botton-battle" ng-click="batalhar()"></a>
-        <a class="botton-army" ng-click="army()"></a>
-        <a class="botton-shop" ng-click="shop()"></a>
+        <button class="botton-exit" ng-click="exit()"></button>
+        <button class="botton-config" ng-click="config()"></button>
+        <button class="botton-credits" ng-click="credits()"></button>
+        <button class="botton-shop" ng-click="shop()"></button>
+        <button class="botton-army" ng-click="army()"></button>
+        <button class="botton-battle" ng-click="batalhar()"></button>
+        <audio autoplay="true" loop>
+            <source src="/music/menu.mp3" type="audio/ogg">
+        </audio>
+        <audio id="clicado">
+            <source src="/sound/click.mp3" type="audio/ogg">
+        </audio>
     </ion-content>
 </ion-view>
