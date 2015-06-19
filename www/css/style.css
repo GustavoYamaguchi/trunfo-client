@@ -5,13 +5,11 @@
 }
 
 .botton-battle {
-    background: url('../img/menu/battle.png') no-repeat;
     position: absolute;
     background-size: 55%;
-    width: 98px;
-    height: 231px;
-    left: 270px;
-    top: 480px;
+    
+    left: 35vh;
+    top: 90vh;
     border: none;
 }
 
