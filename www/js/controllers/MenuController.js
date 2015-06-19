@@ -1,8 +1,14 @@
 var app = angular.module('starter');
 
-app.controller('MenuController', function($scope, $state) {
+app.controller('MenuController', function($scope,$cordovaMedia, $state) {
 
     self = this
+
+    $scope.play = function(src) {
+        var media = new window.Media(src, null, null, function(){});
+        $cordovaMedia.play(media);
+    }
+ 
 
     $scope.batalhar = function() {
         console.log("SALA DE BATALHA");

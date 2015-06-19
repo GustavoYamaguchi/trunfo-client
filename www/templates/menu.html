@@ -1,15 +1,14 @@
 <ion-view>
-    <audio autoplay loop>
-        <source src="/music/menu.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="clicado">
+    
+    <!-- <audio id="clicado">
         <source src="/sound/click.mp3" type="audio/mpeg">
-    </audio>
+    </audio> -->
     <div class="Grid Menu-grid">
         <!-- 292420 -->
         <div class="row row-center Grid-cell Grid-cell-top Grid-cell--center">
             <div class="col-50" align="left">
                 <p style="color: #F69B04;font-family: trajanTrump;"> Menu</p>
+                <button class="button" ng-click="play('/sound/menu.mp3')">Play from file system</button>
             </div>
             <div class="col-50" align="middle">
                 <p style="color: #F69B04;font-family: trajanTrump;size:32">Preencha todos os campos corretamente</p>
