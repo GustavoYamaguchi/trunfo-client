@@ -33,5 +33,12 @@ angular.module('starter', ['ionic','firebase', 'ngCordova'])
         templateUrl: "templates/login.html",
         controller: "LoginController"
     })
+
+    .state('game',  {
+        url: '/game',
+        templateUrl: 'templates/game.html',
+        controller: 'GameController'
+    })
+    
     $urlRouterProvider.otherwise('/menu');
 });
