@@ -1,5 +1,32 @@
 <ion-view>
-    <ion-content>
-    conteudo
+    <ion-content scroll="false">
+    	<section class="tabuleiro-card">
+    		<div class="left">
+    			<div class="vertical game-botoes">
+		    		<button>Strength {{ card().status.strength }}</button>
+		    		<button>Intelligence {{ card().status.intelligence }}</button>
+		    		<button>Skills {{ card().status.skills }}</button>
+		    		<button>Charisma {{ card().status.charisma }}</button>
+		    		<button>Influence {{ card().status.influence }}</button>
+	    		</div>
+	    	</div>
+	    	<div class="right" ng-style="{'background':'url({{ card().file }}) no-repeat', 'background-size': 'cover',
+  				'background-position': 'center'}">
+	    	</div>
+    	</section>
+    	<section class="tabuleiro-card">
+    		<div class="left">
+    			<div class="vertical game-botoes">
+		    		<button>Strength {{ another().status.strength }}</button>
+		    		<button>Intelligence {{ another().status.intelligence }}</button>
+		    		<button>Skills {{ another().status.skills }}</button>
+		    		<button>Charisma {{ another().status.charisma }}</button>
+		    		<button>Influence {{ another().status.influence }}</button>
+	    		</div>
+	    	</div>
+	    	<div class="right" ng-style="{'background':'url({{ another().file }}) no-repeat', 'background-size': 'cover',
+  				'background-position': 'center'}">
+	    	</div>
+    	</section>
     </ion-content>
 </ion-view>

@@ -93,3 +93,35 @@
 .botton-exit:active {
     background-size: 53%;
 }
+
+.vertical {
+     writing-mode:tb-rl;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.tabuleiro-card {
+    height: 50%;
+}
+
+.left {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.right {
+    margin-left: 30%;
+    height: 100%;
+}
+
+.game-botoes {
+    padding-left: 10%;
+}
+
+.game-botoes button {
+    position: center;
+}
