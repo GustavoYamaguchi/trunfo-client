@@ -1,8 +1,24 @@
-//$positive: #16A085 !default;
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
 $calm: #F5F5F5 !default;
 $primary: #16A085 !default;
 $secundary: #F5F5F5 !default;
-$background: #FFFFFF !default;
+$background: #000000 !default;
 $shadow: #BDC3C7 !default;
 $stable: #AAAAAA !default;
 $default-blue: #34495E !default;
@@ -10,15 +26,31 @@ $menu-color-light: #34495E !default;
 $menu-color-dark: #2C3E50 !default;
 /*$secundary:                      #f5f5f5;*/
 
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 /* With gutters */
 
+@font-face {
+    font-family: trajanTrump;
+    font-style: bold;
+    font-weight: 36;
+    src: url(TrajanProRegular.ttf);
+}
+
+.Menu-grid{
+    background: url('../img/menu/menu.jpg'); 
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
 .Grid-header {
     min-height: 45px;
 }
+
 
 .Grid-footer {
     min-height: 45px;
@@ -27,9 +59,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid {
     display: flex;
     min-height: 100vh;
+    min-width: 100vw;
     flex-direction: column;
     background-color: $background;
 }
+
 
 .Grid-cell {
     flex: 1;
