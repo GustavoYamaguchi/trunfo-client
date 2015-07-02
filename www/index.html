@@ -28,8 +28,18 @@
     <script src="js/controllers/LoginController.js"></script>
     <script src="js/controllers/MenuController.js"></script>
     <script src="js/controllers/GameController.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            angular.bootstrap(document, ['starter']);
+        }
+    </script>
+
   </head>
-  <body ng-app="starter">
+  <body>
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
