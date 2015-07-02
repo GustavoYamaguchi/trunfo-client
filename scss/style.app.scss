@@ -552,3 +552,53 @@ label.item.has-error-last {
 .popup-body {
     overflow: auto;
 }
+
+.menu-button-left{
+    margin-left: 6vw;
+    color: #F69B04;
+    font-family: trajanTrump;
+    font-size: 250%;
+}
+
+.menu-button-right{
+    margin-left: 15vw;
+    color: rgba(22, 4, 46, 0.94);
+    font-family: trajanTrump;
+    font-size: 250%;
+}
+#menu-image-size{
+    height: 25%;
+    width: 30%;
+}
+#menu-mid-button{
+    margin-left: 17vw;
+    color: rgba(22, 4, 46, 0.94);
+    font-family: trajanTrump;
+    font-size: 250%;
+}
+
+@media screen and (max-width: 480px){
+    .menu-button-left{
+        margin-left: 6vw;
+        color: #F69B04;
+        font-family: trajanTrump;
+        font-size: 150%;
+    }
+
+    .menu-button-right{
+        margin-left: 13vw;
+        color: rgba(22, 4, 46, 0.94);
+        font-family: trajanTrump;
+        font-size: 150%;
+    }
+    #menu-image-size{
+        height: 23%;
+        width: 27%;
+    }
+    #menu-mid-button{
+        margin-left: 15vw;
+        color: rgba(22, 4, 46, 0.94);
+        font-family: trajanTrump;
+        font-size: 150%;
+    }
+}

@@ -43,7 +43,7 @@ app.controller('MenuController', function($scope,$state) {
         console.log("CONFIG");
     };
 
-    $scope.exit = function() {        
+    $scope.exit = function() {
         clickSound();
         $state.go('login');
     };
