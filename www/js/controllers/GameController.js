@@ -10,24 +10,26 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 	/**
 	 * evento quando é logado com o servidor
 	 */
-	socket.on('onconnected', function(id) {
-		$scope.id = id;
+	socket.on('onconnected', function(data) {
+		$scope.id = data.id;
 	});
 
 	/**
 	 * evento quando o adversário mandou a jogada.
 	 */
-	socket.on('recebendoJogada', function(param) {
-		$scope.anotherCard = param;
-		$scope.isAdversarioOk = true;
-	});
+	socket.on('jogadas', function(param) {
+		for (var chave in param) {
+			if (Number(chave) !== Number($scope.id)) {
+				$scope.$apply(function() {
+					$scope.isAdversarioOk = true;
+					$scope.another = param[chave];
+				});
 
-	/**
-	 * evento quando estou aguardando uma jogada.
-	 */
-	socket.on('aguardando', function(param) {
-		$scope.anotherCard = param;
-		$scope.isAdversarioOk = true;
+				console.log("CHAMA UMA VEZ");
+
+				break;
+			}
+		}
 	});
 	
 	self = this;
@@ -57,16 +59,9 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 	};
 
 	/**
-	 * carta do adversario
-	 */
-	$scope.another = function() {
-		return $scope.anotherCard;
-	};
-
-	/**
 	 * lancando evento quando selecinado um atributo
 	 */
 	$scope.selecionado = function(atributo) {
-		socket.emit('enviandoJogada', {"carta": $scope.card()});
+		socket.emit('enviandoJogada', {"carta": $scope.card(), "id": $scope.id});
 	};
 });
