@@ -3,7 +3,7 @@ var app = angular.module('starter');
 /**
  * Controller para sala de batalha.
  */
-app.controller('GameController', function ($scope, $state, socketFactory) {
+app.controller('GameController', function ($scope, $state, socketFactory, $ionicPopup) {
 
 	var socket = io.connect('http://localhost:8080');
 
@@ -22,11 +22,29 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 			if (Number(chave) !== Number($scope.id)) {
 				$scope.$apply(function() {
 					$scope.isAdversarioOk = true;
-					$scope.another = param[chave];
+					$scope.another = param[chave].carta;
 				});
 
-				console.log("CHAMA UMA VEZ");
+				var meuAtributo = param[$scope.id].jogada.valor;
+				var adversario = param[Number(chave)].jogada.valor;
+				console.log(meuAtributo);
+				console.log(adversario);
 
+				if (meuAtributo === adversario) {
+					self.mensagem = "Empate";
+				} else if (meuAtributo > adversario) {
+					self.mensagem = "Vencedor";
+				} else {
+					self.mensagem = "Perdedor";
+				}
+
+				var alert = $ionicPopup.alert({
+     				title: 'Resultado',
+     				template: self.mensagem
+   				});
+   				alert.then(function(res) {
+
+  				});
 				break;
 			}
 		}
@@ -62,6 +80,10 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 	 * lancando evento quando selecinado um atributo
 	 */
 	$scope.selecionado = function(atributo) {
-		socket.emit('enviandoJogada', {"carta": $scope.card(), "id": $scope.id});
+		console.log(self.carta);
+		socket.emit('enviandoJogada', {"carta": $scope.card(), "id": $scope.id, "jogada" : {
+			'atributo': atributo,
+			'valor': self.carta.status[atributo.toString()]
+		}});
 	};
 });
