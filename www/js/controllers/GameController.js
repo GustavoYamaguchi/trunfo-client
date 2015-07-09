@@ -36,6 +36,8 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 
 	this.carta = undefined;
 
+	$scope.showAtributos = false;
+
 	/**
 	 * carta atual do jogador
 	 */
@@ -44,6 +46,14 @@ app.controller('GameController', function ($scope, $state, socketFactory) {
 			self.carta = cartas[Math.floor(Math.random() * cartas.length)];
 		} 
 		return self.carta;
+	};
+
+	$scope.enableAtributos = function() {
+		$scope.showAtributos = true;
+	};
+
+	$scope.isAble = function() {
+		return true;
 	};
 
 	/**

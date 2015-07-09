@@ -40,5 +40,5 @@ angular.module('starter', ['ionic','firebase', 'ngCordova', 'btford.socket-io'])
         controller: 'GameController'
     })
     
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/game');
 });

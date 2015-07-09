@@ -1,30 +1,26 @@
 <ion-view>
-    <ion-content scroll="false">
-    	<section class="tabuleiro-card">
-    		<div class="left">
-    			<div class="vertical game-botoes">
-		    		<button ng-click="selecionado('strength')">Strength {{ card().status.strength }}</button>
+    <ion-content scroll="false" class="tabuleiro">
+    	<section class="left">
+    		<div class="buttons-player vertical" ng-show="showAtributos">
+    			<button ng-click="selecionado('strength')">Strength {{ card().status.strength }}</button>
 		    		<button ng-click="selecionado('intelligence')">Intelligence {{ card().status.intelligence }}</button>
 		    		<button ng-click="selecionado('skills')">Skills {{ card().status.skills }}</button>
 		    		<button ng-click="selecionado('charisma')">Charisma {{ card().status.charisma }}</button>
 		    		<button ng-click="selecionado('influence')">Influence {{ card().status.influence }}</button>
-	    		</div>
-	    	</div>
-	    	<div class="right" ng-style="{'background':'url({{ card().file }}) no-repeat', 'background-size': 'cover',
+    		</div>
+    		<div ng-click="enableAtributos()" class="card-player vertical" ng-style="{'background':'url({{ card().file }}) no-repeat', 'background-size': 'cover',
   				'background-position': 'center'}">
 	    	</div>
     	</section>
-    	<section class="tabuleiro-card" ng-if="isAdversarioOk">
-    		<div class="left">
-    			<div class="vertical game-botoes">
-		    		<button>Strength {{ another().status.strength }}</button>
-		    		<button>Intelligence {{ another().status.intelligence }}</button>
-		    		<button>Skills {{ another().status.skills }}</button>
-		    		<button>Charisma {{ another().status.charisma }}</button>
-		    		<button>Influence {{ another().status.influence }}</button>
-	    		</div>
-	    	</div>
-	    	<div class="right" ng-style="{'background':'url({{ another().file }}) no-repeat', 'background-size': 'cover',
+    	<section class="right" ng-if="isAdversarioOk">
+    		<div class="buttons-player vertical" ng-show="showAtributos">
+    			<button ng-click="selecionado('strength')">Strength {{ another().status.strength }}</button>
+		    		<button ng-click="selecionado('intelligence')">Intelligence {{ another().status.intelligence }}</button>
+		    		<button ng-click="selecionado('skills')">Skills {{ another().status.skills }}</button>
+		    		<button ng-click="selecionado('charisma')">Charisma {{ another().status.charisma }}</button>
+		    		<button ng-click="selecionado('influence')">Influence {{ another().status.influence }}</button>
+    		</div>
+    		<div ng-click="enableAtributos()" class="card-player vertical" ng-style="{'background':'url({{ another().file }}) no-repeat', 'background-size': 'cover',
   				'background-position': 'center'}">
 	    	</div>
     	</section>
