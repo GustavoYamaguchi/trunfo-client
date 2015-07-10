@@ -554,17 +554,19 @@ label.item.has-error-last {
 }
 
 .menu-button-left{
-    margin-left: 6vw;
+    margin-left: 10vw;
     color: #F69B04;
     font-family: trajanTrump;
     font-size: 250%;
+    font-weight: bold;
 }
 
 .menu-button-right{
-    margin-left: 15vw;
-    color: rgba(22, 4, 46, 0.94);
+    margin-left: 0vw;
+    color: rgb(22, 4, 46);
     font-family: trajanTrump;
     font-size: 250%;
+    font-weight: bold;
 }
 #menu-image-size{
     height: 25%;
@@ -586,7 +588,7 @@ label.item.has-error-last {
     }
 
     .menu-button-right{
-        margin-left: 13vw;
+        margin-left: 0vw;
         color: rgba(22, 4, 46, 0.94);
         font-family: trajanTrump;
         font-size: 150%;
