@@ -3,87 +3,135 @@ var app = angular.module('starter');
 /**
  * Controller para sala de batalha.
  */
-app.controller('GameController', function ($scope, $state, socketFactory, $ionicPopup) {
+ app.controller('GameController', function ($scope, $state, socketFactory, $ionicPopup, $ionicLoading) {
 
-	var socket = io.connect('http://localhost:8080');
+ 	// determina se eh o turno do jogador
+ 	$scope.turno = false;
 
-	/**
+ 	var socket = io.connect('http://localhost:8080');
+
+	/*
 	 * evento quando é logado com o servidor
 	 */
-	socket.on('onconnected', function(data) {
-		$scope.id = data.id;
-	});
+	 socket.on('onconnected', function(data) {
+	 	$scope.id = data.id;
+	 });
 
 	/**
-	 * evento quando o adversário mandou a jogada.
+	 * Apenas um jogador esta conectado.
+	 * Aguardando outro jogador.
 	 */
-	socket.on('jogadas', function(param) {
-		for (var chave in param) {
-			if (Number(chave) !== Number($scope.id)) {
-				$scope.$apply(function() {
-					$scope.isAdversarioOk = true;
-					$scope.another = param[chave].carta;
-				});
+	 socket.on('aguardandoJogador', function(data) {
+	 	$ionicLoading.show({
+	 		template: data.mensagem
+	 	});
+	 });
 
-				var meuAtributo = param[$scope.id].jogada.valor;
-				var adversario = param[Number(chave)].jogada.valor;
-				console.log(meuAtributo);
-				console.log(adversario);
+	 socket.on('oponenteDesconectado', function(data) {
+	 	console.log(data);
+	 	$ionicLoading.show({
+	 		template: data.mensagem,
+	 		duration: 6000
+	 	});
+	 });
 
-				if (meuAtributo === adversario) {
-					self.mensagem = "Empate";
-				} else if (meuAtributo > adversario) {
-					self.mensagem = "Vencedor";
-				} else {
-					self.mensagem = "Perdedor";
-				}
+	 socket.on('iniciarPartida', function(data) {
+	 	$ionicLoading.hide();
 
-				var alert = $ionicPopup.alert({
-     				title: 'Resultado',
-     				template: self.mensagem
-   				});
-   				alert.then(function(res) {
+	 	$scope.$apply(function() {
+	 		$scope.showAtributos = false;
+	 		$scope.isAdversarioOk = false;
+	 		$scope.another = undefined;
+	 	});
 
-  				});
-				break;
-			}
-		}
-	});
-	
-	self = this;
+	 	var mensagem = "";
+	 	$scope.turno = data.turno === $scope.id;
+	 	if ($scope.turno) {
+	 		mensagem = "Seu turno. Realize sua jogada";
+	 	} else {
+	 		mensagem = "Turno do adversário. Aguarde...";
+	 	}
 
-	$scope.isAdversarioOk = false;
+	 	var alert = $ionicPopup.alert({
+	 		title: 'Partida Iniciada',
+	 		template: mensagem
+	 	});
 
-	this.carta = undefined;
+	 });
 
-	$scope.showAtributos = false;
+	 socket.on('resultadoTurno', function(param) {
+	 	var mensagem = param[$scope.id.toString()].mensagem;
+	 	$scope.pontuacao += param[$scope.id.toString()].pontos;
 
-	/**
-	 * carta atual do jogador
-	 */
-	$scope.card = function() {
-		if (self.carta === undefined) {
-			self.carta = cartas[Math.floor(Math.random() * cartas.length)];
-		} 
-		return self.carta;
-	};
+	 	for (var chave in param) {
+	 		if (chave !== $scope.id.toString()) {
+	 			$scope.$apply(function() {
+	 				$scope.showAtributos = true;
+	 				$scope.isAdversarioOk = true;
+	 				$scope.another = param[chave].carta;
+	 			});
+	 			break;
+	 		}
+	 	}
 
-	$scope.enableAtributos = function() {
-		$scope.showAtributos = true;
-	};
+	 	var alert = $ionicPopup.alert({
+	 		title: 'Resultado',
+	 		template: mensagem
+	 	});
+	 	alert.then(function(res) {
+	 		socket.emit('novaPartida');
+	 		$ionicLoading.show({
+	 			template: 'Aguarde...'
+	 		});
+	 	});
+	 });
 
-	$scope.isAble = function() {
-		return true;
-	};
+	 socket.on('getCarta', function() {
+	 	if (!$scope.turno) {
+	 		socket.emit('cartaEnviada', {
+	 			"carta": $scope.carta, 
+	 			"id": $scope.id
+	 		});
+	 	}
+	 });
+
+	 self = this;
+
+	 $scope.isAdversarioOk = false;
+
+	 $scope.carta = undefined;
+
+	 $scope.showAtributos = false;
+
+	 $scope.pontuacao = 0;
+
+	 $scope.enableAtributos = function() {
+	 	$scope.showAtributos = true;
+	 };
+
+	 $scope.isAble = function() {
+	 	return true;
+	 };
+
+	 $scope.flag = true;
+
+	 $scope.card = function() {
+	 	if ($scope.carta === undefined) {
+	 		$scope.carta = cartas[Math.floor(Math.random() * cartas.length)];
+	 	}
+	 	return $scope.carta;
+	 };
 
 	/**
 	 * lancando evento quando selecinado um atributo
 	 */
-	$scope.selecionado = function(atributo) {
-		console.log(self.carta);
-		socket.emit('enviandoJogada', {"carta": $scope.card(), "id": $scope.id, "jogada" : {
-			'atributo': atributo,
-			'valor': self.carta.status[atributo.toString()]
-		}});
-	};
-});
+	 $scope.selecionado = function(atributo) {
+	 	if ($scope.turno) {
+	 		socket.emit('enviandoJogada', {
+	 			"carta": $scope.carta, 
+	 			"id": $scope.id, 
+	 			'atributo': atributo
+	 		});
+	 	}
+	 };
+	});
