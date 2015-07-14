@@ -7186,6 +7186,15 @@ a.button {
   flex: 0 0 90%;
   max-width: 90%; }
 
+.col-100 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
 /* will trigger the flex-direction to */
@@ -7661,6 +7670,18 @@ a.button {
   transition-duration: 0s; }
 
 /* With gutters */
+@font-face {
+  font-family: trajanTrump;
+  font-style: bold;
+  font-weight: 36;
+  src: url(TrajanProRegular.ttf); }
+
+.Config-grid {
+  background: url('../img/config/config.jpg');
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  z-index: 0; }
+
 .Grid-header {
   min-height: 45px; }
 
@@ -7670,6 +7691,7 @@ a.button {
 .Grid {
   display: flex;
   min-height: 100vh;
+  min-width: 100vw;
   flex-direction: column;
   background-color: #FFFFFF; }
 
@@ -15144,6 +15166,15 @@ a.button {
   flex: 0 0 90%;
   max-width: 90%; }
 
+.col-100 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
 /* will trigger the flex-direction to */
@@ -15721,3 +15752,21 @@ a.button {
 
 .popup-body {
   overflow: auto; }
+
+.config-text {
+  color: #F69B04;
+  font-family: trajanTrump;
+  font-size: 150%;
+  font-weight: bold; }
+
+.config-buttons {
+  margin-left: 10vw; }
+
+@media screen and (max-width: 480px) {
+  .config-text {
+    color: #F69B04;
+    font-family: trajanTrump;
+    font-size: 250%;
+    font-weight: bold; }
+  .config-buttons {
+    margin-left: 10vw; } }
