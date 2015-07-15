@@ -1,32 +1,42 @@
 <ion-view>
     <div class="Grid Config-grid">
-        <div class="row row-center Grid-cell Grid-cell--center center_text">
-            <div class="col col-100 config-text"> Configurations</div>
+        <div class="Grid-header">
+            <div class="row row-center Grid-cell">
+                <div class="col col-20">
+                    <p><img style="width: 10vw" src="/android_asset/www/img/menu/back.png" ng-click="back()"></div>
+                </p>
+            </div>
         </div>
         <div class="row row-center Grid-cell">
-            <div class="col col-25 config-text config-buttons">
+            <div class="col col-20"></div>
+            <div class="col col-50">
                 <ul class="list">
-                    <li class="item-checkbox">
-                        <label class="checkbox">
-                            <input type="checkbox">
-                        </label>
+                    <li class="item item-toggle" style="
+                    background-color: transparent;
+                    color: white;
+                    border-color: transparent;">
                         Vibrate
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row row-center Grid-cell">
-            <div class="col col-25 config-text config-buttons">
-                <ul class="list">
-                    <li class="item-checkbox">
-                        <label class="checkbox">
+                        <label class="toggle toggle-dark">
                             <input type="checkbox">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
                         </label>
+                    </li>
+                    <li class="item item-toggle" style="
+                    background-color: transparent;
+                    color: white;
+                    border-color: transparent;">
                         Music
+                        <label class="toggle toggle-dark">
+                            <input type="checkbox">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
                     </li>
                 </ul>
             </div>
         </div>
-
     </div>
 </ion-view>
