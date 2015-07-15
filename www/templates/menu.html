@@ -1,19 +1,35 @@
 <ion-view>
-    <div class="Grid Menu-grid">
+    <div class="Grid Menu-grid" ng-init="play()">
         <div class="row row-center Grid-cell Grid-cell-top Grid-cell--center ">
-            <div class="col col-25 menu-button-left" ng-click="credits()"><p> Credits</p></div>
-            <div class="col col-50"><p></p></div>
-            <div class="col col-25 menu-button-right" ng-click="army()"><p> Battle</p></div>
+            <div class="col col-20 menu-button-left" ng-click="credits()">
+                <p> Credits</p>
+            </div>
+            <div class="col col-60">
+                <p></p>
+            </div>
+            <div class="col col-20 menu-button-right" ng-click="army()">
+                <p> Battle</p>
+            </div>
         </div>
         <div class="row row-center Grid-cell Grid-cell--center">
-            <div class="col col-25 menu-button-left" ng-click="config()"><img id="menu-image-size" src="../img/menu/config.png"></div>
-            <div class="col col-50"><p></p></div>
-            <div class="col col-25 menu-button-right" ng-click="army()"><p> Army</p></div>
+            <div class="col col-20 menu-button-left" ng-click="config()"><img id="menu-image-size" src="/android_asset/www/img/menu/config.png"></div>
+            <div class="col col-60">
+                <p></p>
+            </div>
+            <div class="col col-20 menu-button-right" ng-click="army()">
+                <p> Army</p>
+            </div>
         </div>
         <div class="row row-center Grid-cell Grid-cell-bottom Grid-cell--center">
-            <div class="col col-25 menu-button-left" ng-click="exit()"><p > Exit</p></div>
-             <div class="col col-50"><p></p></div>
-            <div class="col col-25 menu-button-right" ng-click="shop()"><p> Shop</p></div>
+            <div class="col col-20 menu-button-left" ng-click="exit()">
+                <p> Exit</p>
+            </div>
+            <div class="col col-60">
+                <p></p>
+            </div>
+            <div class="col col-20 menu-button-right" ng-click="shop()">
+                <p> Shop</p>
+            </div>
         </div>
     </div>
 </ion-view>

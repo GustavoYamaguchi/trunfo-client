@@ -26,7 +26,6 @@ $menu-color-light: #34495E !default;
 $menu-color-dark: #2C3E50 !default;
 /*$secundary:                      #f5f5f5;*/
 
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
@@ -40,8 +39,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     src: url(TrajanProRegular.ttf);
 }
 
-.Menu-grid{
-    background: url('../img/menu/menu.jpg'); 
+.Menu-grid {
+    background: url('../img/menu/menu.jpg');
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.Config-grid {
+    background: url('../img/menu/Fundo_Config.jpg');
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     z-index: 0;
@@ -50,7 +56,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid-header {
     min-height: 45px;
 }
-
 
 .Grid-footer {
     min-height: 45px;
@@ -63,7 +68,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     flex-direction: column;
     background-color: $background;
 }
-
 
 .Grid-cell {
     flex: 1;
@@ -553,54 +557,55 @@ label.item.has-error-last {
     overflow: auto;
 }
 
-.menu-button-left{
-    margin-left: 10vw;
+.menu-button-left {
+    margin-left: 6vw;
     color: #F69B04;
     font-family: trajanTrump;
-    font-size: 250%;
-    font-weight: bold;
+    font-size: 145%;
 }
 
-.menu-button-right{
+.menu-button-right {
     margin-left: 0vw;
-    color: rgb(22, 4, 46);
-    font-family: trajanTrump;
-    font-size: 250%;
-    font-weight: bold;
-}
-#menu-image-size{
-    height: 25%;
-    width: 30%;
-}
-#menu-mid-button{
-    margin-left: 17vw;
     color: rgba(22, 4, 46, 0.94);
     font-family: trajanTrump;
-    font-size: 250%;
+    font-size: 145%;
 }
 
-@media screen and (max-width: 480px){
-    .menu-button-left{
+#menu-image-size {
+    height: 23%;
+    width: 27%;
+}
+
+#menu-mid-button {
+    margin-left: 15vw;
+    color: rgba(22, 4, 46, 0.94);
+    font-family: trajanTrump;
+    font-size: 145%;
+}
+
+@media screen and (max-width: 480px) {
+    .menu-button-left {
         margin-left: 6vw;
         color: #F69B04;
         font-family: trajanTrump;
-        font-size: 150%;
+        font-size: 250%;
+        font-weight: bold;
     }
-
-    .menu-button-right{
+    .menu-button-right {
         margin-left: 0vw;
+        color: rgb(22, 4, 46);
+        font-family: trajanTrump;
+        font-size: 250%;
+        font-weight: bold;
+    }
+    #menu-image-size {
+        height: 25%;
+        width: 30%;
+    }
+    #menu-mid-button {
+        margin-left: 17vw;
         color: rgba(22, 4, 46, 0.94);
         font-family: trajanTrump;
-        font-size: 150%;
-    }
-    #menu-image-size{
-        height: 23%;
-        width: 27%;
-    }
-    #menu-mid-button{
-        margin-left: 15vw;
-        color: rgba(22, 4, 46, 0.94);
-        font-family: trajanTrump;
-        font-size: 150%;
+        font-size: 250%;
     }
 }
