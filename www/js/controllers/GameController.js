@@ -5,6 +5,8 @@ var app = angular.module('starter');
  */
  app.controller('GameController', function ($scope, $state, socketFactory, $ionicPopup, $ionicLoading) {
 
+ 	$scope.pontuacao = 0;
+
  	// determina se eh o turno do jogador
  	$scope.turno = false;
 
@@ -38,11 +40,16 @@ var app = angular.module('starter');
 	 socket.on('iniciarPartida', function(data) {
 	 	$ionicLoading.hide();
 
+	 	$scope.enable = false;
+
 	 	$scope.$apply(function() {
 	 		$scope.showAtributos = false;
 	 		$scope.isAdversarioOk = false;
 	 		$scope.another = undefined;
+	 		$scope.carta = cartas[Math.floor(Math.random() * cartas.length)];
 	 	});
+
+	 	$scope.enable = true;
 
 	 	var mensagem = "";
 	 	$scope.turno = data.turno === $scope.id;
@@ -56,7 +63,6 @@ var app = angular.module('starter');
 	 		title: 'Partida Iniciada',
 	 		template: mensagem
 	 	});
-
 	 });
 
 	 socket.on('resultadoTurno', function(param) {
@@ -116,9 +122,6 @@ var app = angular.module('starter');
 	 $scope.flag = true;
 
 	 $scope.card = function() {
-	 	if ($scope.carta === undefined) {
-	 		$scope.carta = cartas[Math.floor(Math.random() * cartas.length)];
-	 	}
 	 	return $scope.carta;
 	 };
 
