@@ -1,16 +1,17 @@
 <ion-view>
     <ion-content scroll="false" class="tabuleiro">
     	<section class="left">
-    		<div class="buttons-player vertical" ng-show="showAtributos">
-    			<button ng-click="selecionado('strength')">Strength {{ card().status.strength }}</button>
-		    		<button ng-click="selecionado('intelligence')">Intelligence {{ card().status.intelligence }}</button>
-		    		<button ng-click="selecionado('skills')">Skills {{ card().status.skills }}</button>
-		    		<button ng-click="selecionado('charisma')">Charisma {{ card().status.charisma }}</button>
-		    		<button ng-click="selecionado('influence')">Influence {{ card().status.influence }}</button>
+            <div ng-if="enable" class="buttons-player vertical" ng-show="showAtributos">
+    			<button ng-click="selecionado('strength')">Strength {{ carta.status.strength }}</button>
+		    		<button ng-click="selecionado('intelligence')">Intelligence {{ carta.status.intelligence }}</button>
+		    		<button ng-click="selecionado('skills')">Skills {{ carta.status.skills }}</button>
+		    		<button ng-click="selecionado('charisma')">Charisma {{ carta.status.charisma }}</button>
+		    		<button ng-click="selecionado('influence')">Influence {{ carta.status.influence }}</button>
     		</div>
-    		<div ng-click="enableAtributos()" class="card-player vertical" ng-style="{'background':'url({{ card().file }}) no-repeat', 'background-size': 'cover',
+    		<img ng-if="enable" ng-click="enableAtributos()" class="card-player vertical" ng-style="{'background':'url({{ carta.file }}) no-repeat', 'background-size': 'cover',
   				'background-position': 'center'}">
-	    	</div>
+	    	</img>
+            <div class="vertical score"> {{ pontuacao}} </div>
     	</section>
     	<section class="right">
     		<div class="buttons-player vertical" ng-if="isAdversarioOk">

@@ -7202,6 +7202,15 @@ a.button {
   flex: 0 0 90%;
   max-width: 90%; }
 
+.col-100 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
 /* will trigger the flex-direction to */
@@ -7683,6 +7692,7 @@ a.button {
   font-weight: 36;
   src: url(TrajanProRegular.ttf); }
 
+<<<<<<< HEAD
 .Menu-grid {
   background: url('../img/menu/menu.jpg');
   background-size: 100vw 100vh;
@@ -7691,6 +7701,10 @@ a.button {
 
 .Config-grid {
   background: url('../img/menu/Fundo_Config.jpg');
+=======
+.Config-grid {
+  background: url('../img/config/config.jpg');
+>>>>>>> master
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   z-index: 0; }
@@ -15179,6 +15193,15 @@ a.button {
   flex: 0 0 90%;
   max-width: 90%; }
 
+.col-100 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
 /* will trigger the flex-direction to */
@@ -15757,6 +15780,7 @@ a.button {
 .popup-body {
   overflow: auto; }
 
+<<<<<<< HEAD
 .menu-button-left {
   margin-left: 6vw;
   color: #F69B04;
@@ -15782,10 +15806,24 @@ a.button {
 @media screen and (max-width: 480px) {
   .menu-button-left {
     margin-left: 6vw;
+=======
+.config-text {
+  color: #F69B04;
+  font-family: trajanTrump;
+  font-size: 150%;
+  font-weight: bold; }
+
+.config-buttons {
+  margin-left: 10vw; }
+
+@media screen and (max-width: 480px) {
+  .config-text {
+>>>>>>> master
     color: #F69B04;
     font-family: trajanTrump;
     font-size: 250%;
     font-weight: bold; }
+<<<<<<< HEAD
   .menu-button-right {
     margin-left: 0vw;
     color: #16042e;
@@ -15800,3 +15838,7 @@ a.button {
     color: rgba(22, 4, 46, 0.94);
     font-family: trajanTrump;
     font-size: 250%; } }
+=======
+  .config-buttons {
+    margin-left: 10vw; } }
+>>>>>>> master

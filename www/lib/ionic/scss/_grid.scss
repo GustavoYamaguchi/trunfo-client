@@ -138,6 +138,10 @@
   @include flex(0, 0, 90%);
   max-width: 90%;
 }
+.col-100 {
+  @include flex(0, 0, 100%);
+  max-width: 100%;
+}
 
 
 /* Responsive Grid Classes */

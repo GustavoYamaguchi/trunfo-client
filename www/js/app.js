@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'btford.socket-io']
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
-        .state('menu', {
+    .state('menu', {
         url: "/menu",
         templateUrl: "templates/menu.html",
         controller: 'MenuController'
