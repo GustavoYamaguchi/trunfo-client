@@ -135,11 +135,11 @@
   z-index: 0;
 }
 .card-player {
-    height: 22%;
-    width: 31%;
     position: fixed;
-    margin-left: -8%;
-    margin-top: -2%;
+    margin-left: 3vw;
+    margin-top: 2.5vw;
+    width: 17.8vw;
+    height: 24vw;
 }
 
 .score {
