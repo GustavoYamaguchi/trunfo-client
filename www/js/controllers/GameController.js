@@ -1,5 +1,4 @@
 var app = angular.module('starter');
-var Player = require("../Player").Player;
 
 /**
  * Controller para sala de batalha.
@@ -8,7 +7,7 @@ app.controller('GameController', function($scope, $state, $ionicPopup, $ionicLoa
 
     self = this;
     self.playerDefault = null;
-    self.pleyerLocal = null;
+    self.playerLocal = null;
 
     $scope.pontuacao = 0;
     // determina se eh o turno do jogador
@@ -17,37 +16,35 @@ app.controller('GameController', function($scope, $state, $ionicPopup, $ionicLoa
     $scope.showAtributos = false;
     $scope.pontuacao = 0;
 
-    $scope.init = function(){
-        self.pleyerDefault = new Player();
-        self.pleyerDefault.init(1);
-        self.pleyerLocal = new Player();
-        self.pleyerLocal.init(2);
+    $scope.init = function() {
+        self.playerDefault = new Player();
+        self.playerDefault.init(1);
+        self.playerLocal = new Player();
+        self.playerLocal.init(2);
+        self.sortCards();
     };
 
-    self.sortCards = function(){
-        
+    self.sortCards = function() {
+        var len = cartas.length;
+        var aux = randomiza();
+        for (var i = 0; i < cartas.length / 2; i++) {
+            self.playerLocal.setCartas(cartas[i]);
+            self.playerDefault.setCartas(cartas[i + (len / 2)]);
+        };
     }
 
-    $scope.enableAtributos = function() {
-        $scope.showAtributos = true;
-    };
 
-    $scope.isAble = function() {
-        return true;
-    };
-
-    $scope.flag = true;
-
-    $scope.card = function() {
-        return $scope.carta;
-    };
-
-    /**
-     * lancando evento quando selecinado um atributo
-     */
-    $scope.selecionado = function(atributo) {
-        if ($scope.turno) {
-            
-        }
-    };
 });
+
+function randomiza(n) {
+    var a = [];
+    var aux = 0;
+    for (var i = 0; i < n; i++) {
+        aux = Math.floor(Math.random() * n);
+        if (a.indexOf(aux) == -1)
+            a.push(aux);
+        else
+            i--;
+    }
+    return a;
+}

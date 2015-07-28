@@ -129,10 +129,11 @@
 }
 
 .tabuleiro {
-    background: url('../img/board/casterlyrock.jpg') no-repeat;
-    background-size: cover;
+    background: url('../img/board/casterlyrock.jpg');
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
-
 .card-player {
     height: 22%;
     width: 31%;

@@ -1,29 +1,8 @@
 <ion-view>
-    <ion-content scroll="false" class="tabuleiro">
-    	<section class="left">
-            <div ng-if="enable" class="buttons-player vertical" ng-show="showAtributos">
-    			<button ng-click="selecionado('strength')">Strength {{ carta.status.strength }}</button>
-		    		<button ng-click="selecionado('intelligence')">Intelligence {{ carta.status.intelligence }}</button>
-		    		<button ng-click="selecionado('skills')">Skills {{ carta.status.skills }}</button>
-		    		<button ng-click="selecionado('charisma')">Charisma {{ carta.status.charisma }}</button>
-		    		<button ng-click="selecionado('influence')">Influence {{ carta.status.influence }}</button>
-    		</div>
-    		<img ng-if="enable" ng-click="enableAtributos()" class="card-player vertical" ng-style="{'background':'url({{ carta.file }}) no-repeat', 'background-size': 'cover',
-  				'background-position': 'center'}">
-	    	</img>
-            <div class="vertical score"> {{ pontuacao}} </div>
-    	</section>
-    	<section class="right">
-    		<div class="buttons-player vertical" ng-if="isAdversarioOk">
-    			<button ng-click="selecionado('strength')">Strength {{ another.status.strength }}</button>
-		    		<button ng-click="selecionado('intelligence')">Intelligence {{ another.status.intelligence }}</button>
-		    		<button ng-click="selecionado('skills')">Skills {{ another.status.skills }}</button>
-		    		<button ng-click="selecionado('charisma')">Charisma {{ another.status.charisma }}</button>
-		    		<button ng-click="selecionado('influence')">Influence {{ another.status.influence }}</button>
-    		</div>
-    		<div ng-click="enableAtributos()" ng-if="isAdversarioOk" class="card-player vertical" ng-style="{'background':'url({{ another.file }}) no-repeat', 'background-size': 'cover',
-  				'background-position': 'center'}">
-	    	</div>
-    	</section>
-    </ion-content>
+    <div class="Grid tabuleiro" ng-init="init()">
+        <div class="row row-center Grid-cell Grid-cell-top Grid-cell--center ">
+
+        </div>
+        <div class="row row-center Grid-cell Grid-cell-bottom Grid-cell--center"></div>
+    </div>
 </ion-view>

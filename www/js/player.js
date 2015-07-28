@@ -4,7 +4,7 @@ var Player = function() {
         pontos;
 
     var init = function(id){
-    	this.set_id(id);
+    	set_id(id);
     	cartas = [];
     	pontos = 0;
     }
@@ -30,7 +30,7 @@ var Player = function() {
     	return cartas;
     }
 
-    var ser_cartas = function(newCarta){
+    var set_cartas = function(newCarta){
     	cartas.push(newCarta);
     }
 
@@ -39,9 +39,8 @@ var Player = function() {
         setID: set_id,
         getPontos: get_pontos,
         setPontos: set_pontos,
-        setCartas: ser_cartas,
-        getCartas: get_cartas
+        setCartas: set_cartas,
+        getCartas: get_cartas,
+        init: init 
     }
 };
-
-exports.Player = Player;
