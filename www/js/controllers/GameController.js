@@ -24,6 +24,10 @@ app.controller('GameController', function($scope, $state, $ionicPopup, $ionicLoa
         self.pleyerLocal.init(2);
     };
 
+    self.sortCards = function(){
+        
+    }
+
     $scope.enableAtributos = function() {
         $scope.showAtributos = true;
     };
