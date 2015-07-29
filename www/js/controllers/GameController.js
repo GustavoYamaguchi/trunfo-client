@@ -1,4 +1,4 @@
-var app = angular.module('starter');
+var app = angular.module('starter.controller');
 
 /**
  * Controller para sala de batalha.
