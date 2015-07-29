@@ -137,9 +137,9 @@
 .card-player {
     position: fixed;
     margin-left: 3vw;
-    margin-top: 2.5vw;
+    margin-top: 5.5vw;
     width: 17.8vw;
-    height: 24vw;
+    height: 23vw;
 }
 
 .score {

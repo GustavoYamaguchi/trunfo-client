@@ -9,6 +9,8 @@ app.controller('GameController', function($scope, $state, $ionicPopup, $ionicLoa
     self.playerDefault = null;
     self.playerLocal = null;
 
+    $scope.campoPlayerLocal = [];
+
     $scope.pontuacao = 0;
     // determina se eh o turno do jogador
     $scope.turno = false;
@@ -23,6 +25,16 @@ app.controller('GameController', function($scope, $state, $ionicPopup, $ionicLoa
         self.playerLocal.init(2);
         self.sortCards();
     };
+
+    $scope.showNewCard = function() {
+        if ($scope.campoPlayerLocal.length !== 3) {
+            var index = self.playerLocal.getIndex();
+            $scope.campoPlayerLocal.push(self.playerLocal.getCarta(index));
+        }else{
+            $ionicPopup.alert({template:"Número máximo de cartas em campo"});
+        }
+
+    }
 
     self.sortCards = function() {
         var len = cartas.length;
