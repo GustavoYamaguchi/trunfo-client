@@ -7692,6 +7692,13 @@ a.button {
   font-weight: 36;
   src: url(TrajanProRegular.ttf); }
 
+/* Override Ionic Modal */
+@media only screen and (max-device-width: 1024px) {
+  .modal {
+    left: 20vw;
+    min-height: 240px;
+    width: 60vw; } }
+
 .Menu-grid {
   background: url('../img/menu/menu.jpg');
   background-size: 100vw 100vh;

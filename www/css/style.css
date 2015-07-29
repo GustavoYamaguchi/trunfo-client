@@ -135,15 +135,36 @@
   z-index: 0;
 }
 .card-player {
-    position: fixed;
+    position: relative;
     margin-left: 3vw;
-    margin-top: 5.5vw;
+    margin-top: 15%;
     width: 17.8vw;
-    height: 23vw;
+    height: 40vh;
+}
+
+.card-player-top {
+    margin-top: 12%;
+    height: 38vh;
 }
 
 .score {
   text-align: center;
   font-size: 52px;
   margin-top: 310px;
+}
+
+.badge{
+    background-color: green;
+}
+
+
+/* Override Ionic Modal */
+
+@media only screen and (max-device-width: 1024px) {
+    .modal {
+        top:10vh;
+        left: 15vw;
+        min-height: 260px;
+        width: 70vw;
+    }
 }

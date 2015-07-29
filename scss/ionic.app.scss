@@ -24,12 +24,14 @@ $stable: #AAAAAA !default;
 $default-blue: #34495E !default;
 $menu-color-light: #34495E !default;
 $menu-color-dark: #2C3E50 !default;
+
 /*$secundary:                      #f5f5f5;*/
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
 /* With gutters */
 
 @font-face {
@@ -38,6 +40,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     font-weight: 36;
     src: url(TrajanProRegular.ttf);
 }
+
 
 .Menu-grid {
     background: url('../img/menu/menu.jpg');
@@ -95,6 +98,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid-footer {
     min-height: 45px;
 }
+
+
 /* Alignment per row */
 
 .Grid--top {
@@ -108,6 +113,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid--center {
     align-items: center;
 }
+
+
 /* Alignment per cell */
 
 .Grid-cell--top {
@@ -121,6 +128,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid-cell--center {
     align-self: center;
 }
+
+
 /* Base classes for all media */
 
 .Grid--fit > .Grid-cell {
@@ -142,6 +151,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Grid--1of4 > .Grid-cell {
     flex: 0 0 25%
 }
+
+
 /* Small to medium screens */
 
 @media (min-width: 24em) {
@@ -161,6 +172,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         flex: 0 0 25%
     }
 }
+
+
 /* Large screens */
 
 @media (min-width: 48em) {
@@ -256,6 +269,8 @@ span {
 real {
     color: $primary;
 }
+
+
 /**/
 
 hr.ou {
@@ -293,6 +308,8 @@ hr.line:after {
     padding: 0 0.25em;
     background: $background;
 }
+
+
 /*@Override from ionic class*/
 
 .list {
@@ -347,6 +364,8 @@ hr.line:after {
     border-radius: 3px;
     border: 0px solid;
 }
+
+
 /*@Overrride popup ionic*/
 
 .popup {
@@ -371,6 +390,8 @@ hr.line:after {
 .popup-body i {
     color: $primary;
 }
+
+
 /*Span de validação do formulário da página de registro*/
 
 label.item.has-error {
@@ -380,6 +401,8 @@ label.item.has-error {
 label.item.has-error-last {
     border-bottom: 1.9px solid red;
 }
+
+
 /* Home Screen (Sale) */
 
 .product-description {

@@ -1,23 +1,41 @@
 <ion-view>
     <div class="Grid tabuleiro" ng-init="init()">
         <div class="row row-top Grid-cell Grid-cell-top Grid-cell--top ">
+            <div class="col col-25">
+                <div class="card-player card-player-top text-right">
+                    <span class="badge badge-balanced">{{getNumberOfCardUsed(1)}}/{{getNumCards(1)}}</span>
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top">
+                    <img src="img/cards/cardback.png" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerDefault[0])" ng-show="campoPlayerDefault[0] !== undefined" /></div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top">
+                    <img src="img/cards/cardback.png" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerDefault[1])" ng-show="campoPlayerDefault[0] !== undefined" /></div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top">
+                    <img src="img/cards/cardback.png" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerDefault[2])" ng-show="campoPlayerDefault[0] !== undefined" /></div>
+            </div>
         </div>
         <div class="row row-top Grid-cell Grid-cell-top Grid-cell--top">
             <div class="col col-25">
-                <div class="card-player" ng-click="showNewCard()"></div>
+                <div class="card-player text-right" ng-click="showNewCard()">
+                    <span class="badge badge-balanced">{{getNumberOfCardUsed(0)}}/{{getNumCards(0)}}</span>
+                </div>
             </div>
             <div class="col col-25">
                 <div class="card-player">
-                    <img src="{{campoPlayerLocal[0].file}}" width="100%" height="100%" ng-click="" ng-show="campoPlayerLocal[0] !== undefined"/></div>
+                    <img src="{{campoPlayerLocal[0].file}}" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerLocal[0])" ng-show="campoPlayerLocal[0] !== undefined" /></div>
             </div>
             <div class="col col-25">
                 <div class="card-player">
-                    <img src="{{campoPlayerLocal[1].file}}" width="100%" height="100%" ng-click="" ng-show="campoPlayerLocal[1] !== undefined" /></div>
+                    <img src="{{campoPlayerLocal[1].file}}" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerLocal[1])" ng-show="campoPlayerLocal[1] !== undefined" /></div>
             </div>
             <div class="col col-25">
                 <div class="card-player">
-                    <img src="{{campoPlayerLocal[2].file}}" width="100%" height="100%" ng-click="" 
-                    ng-show="campoPlayerLocal[2] !== undefined"/></div>
+                    <img src="{{campoPlayerLocal[2].file}}" width="100%" height="100%" on-hold="setCartaParaDesafio(campoPlayerLocal[2])" ng-show="campoPlayerLocal[2] !== undefined" /></div>
             </div>
         </div>
     </div>

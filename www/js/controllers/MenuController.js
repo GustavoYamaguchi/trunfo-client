@@ -36,7 +36,7 @@ app.controller('MenuController', function($scope,$state) {
  
 
 	$scope.batalhar = function() {
-		
+		self.playClick();
 		$state.go('game');
 	};
 
