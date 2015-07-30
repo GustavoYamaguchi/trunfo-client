@@ -36,7 +36,7 @@ app.controller('MenuController', function($scope,$state) {
  
 
 	$scope.batalhar = function() {
-		$state.go('game');
+		$state.go('subgame');
 	};
 
 	$scope.army = function() {

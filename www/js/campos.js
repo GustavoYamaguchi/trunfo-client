@@ -1,0 +1,24 @@
+var camposDeBatalha = [{
+	file:'img/board/Dorne.jpg'
+},{
+	file:'img/board/Dragonstone.jpg'
+},{
+	file:'img/board/Essos.jpg'
+},{
+	file:'img/board/IronIslands.jpg'
+},{
+	file:'img/board/Kingslanding.jpg'
+},{
+	file:'img/board/Reach.jpg'
+},{
+	file:'img/board/Riverlands.jpg'
+},{
+	file:'img/board/Stromlands.jpg'
+},{
+	file:'img/board/Vale.jpg'
+},{
+	file:'img/board/Winterfell.jpg'
+},{
+	file:'img/board/casterlyrock.jpg'
+}
+];

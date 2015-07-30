@@ -45,7 +45,7 @@ var Player = function() {
     }
 
     var get_index = function(){
-        return indexAtual++;
+        return indexAtual < 6?indexAtual++:-1;
     }
 
     var set_index = function(index){

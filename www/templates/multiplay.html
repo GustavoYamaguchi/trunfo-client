@@ -1,0 +1,59 @@
+<ion-view>
+    <div class="Grid tabuleiro-mult">
+        <div class="row row-top Grid-cell Grid-cell-top Grid-cell--top ">
+            <div class="col col-25">
+                <div class="card-player card-player-top text-right">
+                    <div ng-if="enable" class="buttons-player " ng-show="showAtributos">
+                        <button ng-click="selecionado('strength')">Strength {{ carta.status.strength }}</button>
+                        <button ng-click="selecionado('intelligence')">Intelligence {{ carta.status.intelligence }}</button>
+                        <button ng-click="selecionado('skills')">Skills {{ carta.status.skills }}</button>
+                        <button ng-click="selecionado('charisma')">Charisma {{ carta.status.charisma }}</button>
+                        <button ng-click="selecionado('influence')">Influence {{ carta.status.influence }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top text-right">
+                    <img src="{{carta.file}}" width="100%" height="100%" ng-click="enableAtributos()" ng-if="enable"/> 
+                    <div class="score"> {{ pontuacao}} </div>
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top text-right">
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player card-player-top text-right">
+                </div>
+            </div>
+        </div>
+        <div class="row row-top Grid-cell Grid-cell-top Grid-cell--top ">
+            <div class="col col-25">
+                <div class="card-player text-right">
+                    <div class="buttons-player " ng-if="isAdversarioOk">
+                        <button ng-click="selecionado('strength')">Strength {{ another.status.strength }}</button>
+                        <button ng-click="selecionado('intelligence')">Intelligence {{ another.status.intelligence }}</button>
+                        <button ng-click="selecionado('skills')">Skills {{ another.status.skills }}</button>
+                        <button ng-click="selecionado('charisma')">Charisma {{ another.status.charisma }}</button>
+                        <button ng-click="selecionado('influence')">Influence {{ another.status.influence }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player text-right">
+                    <img src="{{another.file}}" width="100%" height="100%" ng-click="enableAtributos()" ng-if="isAdversarioOk"> 
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player text-right">
+                </div>
+            </div>
+            <div class="col col-25">
+                <div class="card-player text-right">
+                </div>
+            </div>
+        </div>
+        <section class="right">
+        </section>
+    </div>
+</ion-view>

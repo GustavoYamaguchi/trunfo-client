@@ -129,10 +129,14 @@
 }
 
 .tabuleiro {
-    background: url('../img/board/casterlyrock.jpg');
-  background-size: 100vw 100vh;
+  
   background-repeat: no-repeat;
   z-index: 0;
+}
+
+.tabuleiro-mult {
+    background: url('../img/board/casterlyrock.jpg') no-repeat;
+    background-size: 100vw 100vh;
 }
 .card-player {
     position: relative;
@@ -151,10 +155,6 @@
   text-align: center;
   font-size: 52px;
   margin-top: 310px;
-}
-
-.badge{
-    background-color: green;
 }
 
 

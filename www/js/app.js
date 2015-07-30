@@ -7,7 +7,7 @@ angular.module('starter.controller', []);
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controller'])
+angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'btford.socket-io','starter.controller'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -41,6 +41,17 @@ angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controller
         url: '/game',
         templateUrl: 'templates/game.html',
         controller: 'GameController'
+    })
+
+    .state('multiplay', {
+        url: '/multiplay',
+        templateUrl: 'templates/multiplay.html',
+        controller: 'MultiplayController'
+    })
+
+    .state('subgame', {
+        url: '/subgame',
+        templateUrl: 'templates/sub-game.html'
     })
 
     .state('config', {

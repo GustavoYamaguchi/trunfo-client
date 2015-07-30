@@ -5,7 +5,7 @@
     <ion-content>
         <div class="row">
             <div class="col col-33 text-center">
-                <img src="{{campoPlayerLocal[cartasParaDesafio[0]].file}}" width="100%" />
+                <img src="{{getCartaDoCampo(cartasParaDesafio[0],1).file}}" width="100%" />
             </div>
             <div class="col col-33 text-center">X
                 <br>
@@ -29,7 +29,7 @@
             </div>
             <div class="col col-33 text-center">
                 <img src="img/cards/cardback.png" width="100%" ng-show="!virarCarta"/>
-                <img src="{{campoPlayerDefault[cartasParaDesafio[1]].file}}" width="100%" ng-show="virarCarta"/>
+                <img src="{{getCartaDoCampo(cartasParaDesafio[1],0).file}}" width="100%" ng-show="virarCarta"/>
             </div>
         </div>
     </ion-content>

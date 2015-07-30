@@ -8,18 +8,12 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
     self = this;
     self.playerDefault = null;
     self.playerLocal = null;
+    self.game = null;
 
-    $scope.campoPlayerLocal = [];
-    $scope.campoPlayerDefault = [];
+    $scope.currentCampo;
 
     $scope.virarCarta = false;
 
-    $scope.pontuacao = 0;
-    // determina se eh o turno do jogador
-    $scope.turno = false;
-    $scope.carta = undefined;
-    $scope.showAtributos = false;
-    $scope.pontuacao = 0;
     $scope.modal = null;
 
     $scope.cartasParaDesafio = [];
@@ -34,20 +28,21 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
     // Execute action on hide modal
     $scope.$on('modal.hidden', function() {
         $scope.cartasParaDesafio = [];
-        $ionicPopup.alert({
-            template: "Desafio finalizado."
-        });
-        if ($scope.campoPlayerDefault.length === 0 && self.playerDefault.getIndexWI() === 6) {
+
+        if (self.game.getCampo(0).length === 0 && self.playerDefault.getIndexWI() === 6) {
             $ionicPopup.alert({
                 template: "Parabéns, você venceu o jogo!"
             });
             $state.go('menu');
-        }
-        if ($scope.campoPlayerLocal.length === 0 && self.playerLocal.getIndexWI() === 6) {
+        } else if (self.game.getCampo(1).length === 0 && self.playerLocal.getIndexWI() === 6) {
             $ionicPopup.alert({
                 template: "Você perdeu o jogo!"
             });
             $state.go('menu');
+        } else {
+            $ionicPopup.alert({
+                template: "Desafio finalizado."
+            });
         }
 
     });
@@ -61,8 +56,9 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
     $scope.atacar = function(value) {
         var msg = null;
         $scope.virarCarta = true;
-        var player1 = $scope.campoPlayerLocal[$scope.cartasParaDesafio[0]];
-        var player2 = $scope.campoPlayerDefault[$scope.cartasParaDesafio[1]];
+
+        var player1 = self.game.getCampo(1)[$scope.cartasParaDesafio[0]];
+        var player2 = self.game.getCampo(0)[$scope.cartasParaDesafio[0]];
         if (value.id == 0) {
             msg = player1.status.strength > player2.status.strength ? "Você venceu" : "Você perdeu";
         } else if (value.id == 1) {
@@ -84,22 +80,15 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
             });
             if (msg == "Você venceu") {
                 $timeout(function() {
-                    $scope.campoPlayerDefault = novoCampo($scope.cartasParaDesafio[1], $scope.campoPlayerDefault);
+                    self.game.removeCard($scope.cartasParaDesafio[1], 0);
                     $scope.virarCarta = false;
                     $scope.closeModal();
-                    if ($scope.campoPlayerDefault.length !== 3 && self.playerDefault.getIndexWI() < 6) {
-                        var index = self.playerDefault.getIndex();
-                        $scope.campoPlayerDefault.push(self.playerDefault.getCarta(index));
-                    } else if(self.playerDefault.getIndexWI() < 6){
-                        $ionicPopup.alert({
-                            template: "Número máximo de cartas em campo"
-                        });
-                    }
+                    $scope.showNewCard(0);
                 }, 2000);
 
             } else {
                 $timeout(function() {
-                    $scope.campoPlayerLocal = novoCampo($scope.cartasParaDesafio[0], $scope.campoPlayerLocal);
+                    self.game.removeCard($scope.cartasParaDesafio[0], 1);
                     $scope.virarCarta = false;
                     $scope.closeModal();
                 }, 2000);
@@ -108,7 +97,7 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
         }
     };
 
-    $scope.setCartaParaDesafio = function(card) {
+    $scope.setCartaParaDesafio = function(card, playerID) {
         if ($scope.cartasParaDesafio.length == 0) {
             $scope.cartasParaDesafio.push(card);
             $ionicPopup.alert({
@@ -120,20 +109,27 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
         }
     }
 
+    self.sortCampo = function(){
+        var aux = Math.floor(Math.random() * 11);
+        return camposDeBatalha[aux].file;
+    }
+
     $scope.init = function() {
+        $scope.currentCampo = self.sortCampo();
         self.playerDefault = new Player();
         self.playerDefault.init(1);
         self.playerLocal = new Player();
         self.playerLocal.init(2);
-        self.sortCards();
+        self.game = new Game();
+        self.game.init(self.playerDefault, self.playerLocal);
         for (var i = 0; i < 3; i++) {
-            $scope.showNewCard();
-            self.showNewCardDefault();
+            $scope.showNewCard(0);
+            $scope.showNewCard(1);
         };
     };
 
     $scope.getNumberOfCardUsed = function(tipo) {
-        if (tipo == 0) {
+        if (tipo == 1) {
             return self.playerLocal.getIndexWI();
         } else {
             return self.playerDefault.getIndexWI();
@@ -141,69 +137,40 @@ app.controller('GameController', function($scope, $timeout, $state, $ionicModal,
     }
 
     $scope.getNumCards = function(tipo) {
-        if (tipo == 0) {
+        if (tipo == 1) {
             return self.playerLocal.getCartas().length;
         } else {
             return self.playerDefault.getCartas().length;
         }
     }
 
-    $scope.showNewCard = function() {
-        if ($scope.campoPlayerLocal.length !== 3 && self.playerLocal.getIndexWI() < 6) {
-            var index = self.playerLocal.getIndex();
-            $scope.campoPlayerLocal.push(self.playerLocal.getCarta(index));
+    $scope.getCartaDoCampo = function(pos, playerID) {
+        return self.game.getCampo(playerID)[pos];
+    }
+
+    $scope.showNewCard = function(playerID) {
+        if (self.game.getCampo(playerID).length < 3) {
+            card = self.game.newCard(playerID);
+            if (card === null) {
+                if (playerID !== 0) {
+                    $ionicPopup.alert({
+                        template: "Você não possui cartas"
+                    });
+                }
+            } else {
+                if (playerID === 1) {
+                    self.game.setCartaCampo(1, card);
+                } else {
+                    self.game.setCartaCampo(0, card);
+                }
+            }
+
         } else {
             $ionicPopup.alert({
                 template: "Número máximo de cartas em campo"
             });
         }
-
-    }
-
-    self.showNewCardDefault = function() {
-        if ($scope.campoPlayerDefault.length !== 3) {
-            var index = self.playerDefault.getIndex();
-            $scope.campoPlayerDefault.push(self.playerDefault.getCarta(index));
-        } else {
-            $ionicPopup.alert({
-                template: "Número máximo de cartas em campo"
-            });
-        }
-
-    }
-
-
-    self.sortCards = function() {
-        var len = cartas.length;
-        var aux = randomiza(len);
-        for (var i = 0; i < len / 2; i++) {
-            self.playerLocal.setCartas(cartas[aux[i]]);
-            self.playerDefault.setCartas(cartas[aux[i + (len / 2)]]);
-        };
     }
 
 
 });
-
-function novoCampo(index, campo) {
-    var aux = [];
-    for (var i = 0; i < campo.length; i++) {
-        if (i !== index) {
-            aux.push(campo[i]);
-        }
-    };
-    return aux;
-}
-
-function randomiza(n) {
-    var a = [];
-    var aux = 0;
-    for (var i = 0; i < n; i++) {
-        aux = Math.floor(Math.random() * n);
-        if (a.indexOf(aux) == -1)
-            a.push(aux);
-        else
-            i--;
-    }
-    return a;
-}
