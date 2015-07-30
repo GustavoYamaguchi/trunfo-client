@@ -13,7 +13,7 @@ var camposDeBatalha = [{
 },{
 	file:'img/board/Riverlands.jpg'
 },{
-	file:'img/board/Stromlands.jpg'
+	file:'img/board/Stormlands.jpg'
 },{
 	file:'img/board/Vale.jpg'
 },{
