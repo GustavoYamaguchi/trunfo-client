@@ -36,8 +36,7 @@
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-splashscreen",
-    "com.ionic.keyboard",
-    "org.apache.cordova.media"
+    "com.ionic.keyboard"
   ],
   "cordovaPlatforms": [
     "android"
