@@ -3,7 +3,7 @@ var app = angular.module('starter.controller');
 /**
  * Controller para sala de batalha.
  */
-app.controller('GameController', function($scope, $state, $ionicModal, $ionicPopup, $ionicLoading) {
+app.controller('GameController', function($scope, $timeout, $state, $ionicModal, $ionicPopup, $ionicLoading) {
 
     self = this;
     self.playerDefault = null;
@@ -11,6 +11,8 @@ app.controller('GameController', function($scope, $state, $ionicModal, $ionicPop
 
     $scope.campoPlayerLocal = [];
     $scope.campoPlayerDefault = [];
+
+    $scope.virarCarta = false;
 
     $scope.pontuacao = 0;
     // determina se eh o turno do jogador
@@ -31,16 +33,79 @@ app.controller('GameController', function($scope, $state, $ionicModal, $ionicPop
 
     // Execute action on hide modal
     $scope.$on('modal.hidden', function() {
-        self.cartasParaDesafio = [];
+        $scope.cartasParaDesafio = [];
         $ionicPopup.alert({
-                template: "Desafio finalizado."
+            template: "Desafio finalizado."
+        });
+        if ($scope.campoPlayerDefault.length === 0 && self.playerDefault.getIndexWI() === 6) {
+            $ionicPopup.alert({
+                template: "Parabéns, você venceu o jogo!"
             });
+            $state.go('menu');
+        }
+        if ($scope.campoPlayerLocal.length === 0 && self.playerLocal.getIndexWI() === 6) {
+            $ionicPopup.alert({
+                template: "Você perdeu o jogo!"
+            });
+            $state.go('menu');
+        }
+
     });
     $scope.openModal = function(cartaJogador, otherCarta) {
         $scope.modal.show();
     };
     $scope.closeModal = function() {
         $scope.modal.hide();
+    };
+
+    $scope.atacar = function(value) {
+        var msg = null;
+        $scope.virarCarta = true;
+        var player1 = $scope.campoPlayerLocal[$scope.cartasParaDesafio[0]];
+        var player2 = $scope.campoPlayerDefault[$scope.cartasParaDesafio[1]];
+        if (value.id == 0) {
+            msg = player1.status.strength > player2.status.strength ? "Você venceu" : "Você perdeu";
+        } else if (value.id == 1) {
+            msg = player1.status.intelligence > player2.status.intelligence ? "Você venceu" : "Você perdeu";
+        } else if (value.id == 2) {
+            msg = player1.status.skills > player2.status.skills ? "Você venceu" : "Você perdeu";
+        } else if (value.id == 3) {
+            msg = player1.status.charisma > player2.status.charisma ? "Você venceu" : "Você perdeu";
+        } else if (value.id == 4) {
+            msg = player1.status.influence > player2.status.influence ? "Você venceu" : "Você perdeu";
+        } else {
+            $ionicPopup.alert({
+                template: "opção inválida!"
+            });
+        }
+        if (msg !== null) {
+            $ionicPopup.alert({
+                template: msg + " esta rodada!"
+            });
+            if (msg == "Você venceu") {
+                $timeout(function() {
+                    $scope.campoPlayerDefault = novoCampo($scope.cartasParaDesafio[1], $scope.campoPlayerDefault);
+                    $scope.virarCarta = false;
+                    $scope.closeModal();
+                    if ($scope.campoPlayerDefault.length !== 3 && self.playerDefault.getIndexWI() < 6) {
+                        var index = self.playerDefault.getIndex();
+                        $scope.campoPlayerDefault.push(self.playerDefault.getCarta(index));
+                    } else if(self.playerDefault.getIndexWI() < 6){
+                        $ionicPopup.alert({
+                            template: "Número máximo de cartas em campo"
+                        });
+                    }
+                }, 2000);
+
+            } else {
+                $timeout(function() {
+                    $scope.campoPlayerLocal = novoCampo($scope.cartasParaDesafio[0], $scope.campoPlayerLocal);
+                    $scope.virarCarta = false;
+                    $scope.closeModal();
+                }, 2000);
+
+            }
+        }
     };
 
     $scope.setCartaParaDesafio = function(card) {
@@ -69,9 +134,9 @@ app.controller('GameController', function($scope, $state, $ionicModal, $ionicPop
 
     $scope.getNumberOfCardUsed = function(tipo) {
         if (tipo == 0) {
-            return $scope.campoPlayerLocal.length;
+            return self.playerLocal.getIndexWI();
         } else {
-            return $scope.campoPlayerDefault.length;
+            return self.playerDefault.getIndexWI();
         }
     }
 
@@ -84,7 +149,7 @@ app.controller('GameController', function($scope, $state, $ionicModal, $ionicPop
     }
 
     $scope.showNewCard = function() {
-        if ($scope.campoPlayerLocal.length !== 3) {
+        if ($scope.campoPlayerLocal.length !== 3 && self.playerLocal.getIndexWI() < 6) {
             var index = self.playerLocal.getIndex();
             $scope.campoPlayerLocal.push(self.playerLocal.getCarta(index));
         } else {
@@ -119,6 +184,16 @@ app.controller('GameController', function($scope, $state, $ionicModal, $ionicPop
 
 
 });
+
+function novoCampo(index, campo) {
+    var aux = [];
+    for (var i = 0; i < campo.length; i++) {
+        if (i !== index) {
+            aux.push(campo[i]);
+        }
+    };
+    return aux;
+}
 
 function randomiza(n) {
     var a = [];

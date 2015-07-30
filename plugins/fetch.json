@@ -33,9 +33,7 @@
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.file"
-        },
-        "is_top_level": false,
-        "variables": {}
+        }
     },
     "cordova-plugin-file": {
         "source": {
@@ -60,5 +58,11 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "org.apache.cordova.media": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media"
+        }
     }
 }

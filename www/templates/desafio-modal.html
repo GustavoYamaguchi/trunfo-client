@@ -5,11 +5,31 @@
     <ion-content>
         <div class="row">
             <div class="col col-33 text-center">
-                <img src="{{cartasParaDesafio[0].file}}" width="100%" />
+                <img src="{{campoPlayerLocal[cartasParaDesafio[0]].file}}" width="100%" />
             </div>
-            <div class="col col-33 text-center">X</div>
+            <div class="col col-33 text-center">X
+                <br>
+                <br>
+                <div class="list">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Opção: 
+                        </div>
+                        <select ng-model="jogada.id" convert-to-number>
+                            <option value="0" selected>Strength</option>
+                            <option value="1">Intelligence</option>
+                            <option value="2">Fighting Skills</option>
+                            <option value="3">Charisma</option>
+                            <option value="4">Influence</option>
+                        </select>
+                    </label>
+                </div>
+                <br><br><br>
+                <a class="button button-block icon-right ion-chevron-right button-assertive" ng-click="atacar(jogada)">Atacar</a>
+            </div>
             <div class="col col-33 text-center">
-                <img src="img/cards/cardback.png" width="100%" />
+                <img src="img/cards/cardback.png" width="100%" ng-show="!virarCarta"/>
+                <img src="{{campoPlayerDefault[cartasParaDesafio[1]].file}}" width="100%" ng-show="virarCarta"/>
             </div>
         </div>
     </ion-content>

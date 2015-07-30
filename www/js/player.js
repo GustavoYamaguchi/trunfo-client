@@ -11,6 +11,10 @@ var Player = function() {
         indexAtual = 0
     }
 
+    var getIndexWithoutIncrement = function(){
+        return indexAtual;
+    }
+
 
     var get_id = function() {
         return id;
@@ -58,6 +62,7 @@ var Player = function() {
         getCarta: get_carta,
         getIndex: get_index,
         setIndex: set_index,
+        getIndexWI: getIndexWithoutIncrement,
         init: init 
     }
 };
